@@ -46,6 +46,15 @@ public class SSLSocketFactory extends javax.net.ssl.SSLSocketFactory {
         }
     }
 
+    /**
+     * (non-Javadoc)
+     * @see javax.net.SocketFactory#createSocket()
+     */
+    @Override
+    public Socket createSocket() throws IOException {
+        return trustAllSSLSocketFactory.createSocket();
+    }
+
     /*
      * (non-Javadoc)
      * @see javax.net.SocketFactory#createSocket(java.net.InetAddress, int)

@@ -21,7 +21,6 @@ public class JNDIRealmTest {
         realm.setConnectionTimeout("5000");
 
         Hashtable<String, String> env = realm.getDirectoryContextEnvironment();
-        assertFalse(env.containsKey("com.sun.jndi.ldap.connect.timeout"));
         assertEquals(SSLSocketFactory.class.getName(), env.get("java.naming.ldap.factory.socket"));
     }
 }
