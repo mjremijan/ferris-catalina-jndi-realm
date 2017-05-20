@@ -58,14 +58,6 @@ public class JNDIRealm extends org.apache.catalina.realm.JNDIRealm {
         Hashtable<String, String> env = super.getDirectoryContextEnvironment();
         env.put("java.naming.ldap.factory.socket", "org.ferris.catalina.jndi.net.ssl.SSLSocketFactory");
 
-        // Remove this property!
-        //
-        // If it's here it causes the following exception:
-        //
-        // javax.naming.CommunicationException: localhost:389 [Root exception is java.net.SocketException: Unconnected
-        // sockets not implemented]
-        env.remove("com.sun.jndi.ldap.connect.timeout");
-
         return env;
     }
 }
